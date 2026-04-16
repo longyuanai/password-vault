@@ -1,0 +1,22 @@
+<view class="centered-container">
+  <view class="centered-card">
+    <view class="card-header" style="text-align: center; border-bottom: none;">
+      <text style="font-size: 48rpx;">🔒</text>
+      <view style="font-size: 36rpx; font-weight: 600; margin-top: 16rpx;">初始化密码保险库</view>
+    </view>
+
+    <view wx:if="{{error}}" class="alert alert-error">{{error}}</view>
+
+    <view class="form-item">
+      <text class="form-label">设置主密码</text>
+      <input class="form-input" type="text" password="{{true}}" placeholder="至少 8 个字符" value="{{masterPassword}}" bindinput="onPasswordInput" />
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">确认主密码</text>
+      <input class="form-input" type="text" password="{{true}}" placeholder="再次输入主密码" value="{{confirmPassword}}" bindinput="onConfirmInput" />
+    </view>
+
+    <button class="btn-primary" loading="{{loading}}" bindtap="onSubmit">创建保险库</button>
+  </view>
+</view>

@@ -1,0 +1,106 @@
+<view class="page-container">
+  <!-- Loading State -->
+  <view class="loading-wrapper" wx:if="{{loading}}">
+    <view class="loading-spinner"></view>
+    <text class="loading-text">加载中...</text>
+  </view>
+
+  <!-- Entry Detail -->
+  <block wx:if="{{!loading && entry}}">
+    <!-- Title Card -->
+    <view class="card title-card">
+      <view class="title-row">
+        <text class="entry-title">{{entry.title}}</text>
+        <text class="favorite-star" bindtap="toggleFavorite">{{entry.favorite ? '★' : '☆'}}</text>
+      </view>
+      <view class="category-row" wx:if="{{entry.category}}">
+        <text class="tag category-tag">{{entry.category}}</text>
+      </view>
+    </view>
+
+    <!-- Fields Card -->
+    <view class="card fields-card">
+      <!-- Username -->
+      <view class="field-row" wx:if="{{entry.username}}">
+        <view class="field-label">用户名</view>
+        <view class="field-value-row">
+          <text class="field-value" selectable>{{entry.username}}</text>
+          <view class="copy-btn" bindtap="copyField" data-field="username" data-value="{{entry.username}}">
+            <text class="copy-icon">复制</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- Password -->
+      <view class="field-row" wx:if="{{entry.password}}">
+        <view class="field-label">密码</view>
+        <view class="field-value-row">
+          <text class="field-value password-value" selectable>{{showPassword ? entry.password : '••••••••'}}</text>
+          <view class="field-actions">
+            <view class="toggle-btn" bindtap="togglePassword">
+              <text class="toggle-icon">{{showPassword ? '🙈' : '👁'}}</text>
+            </view>
+            <view class="copy-btn" bindtap="copyField" data-field="password" data-value="{{entry.password}}">
+              <text class="copy-icon">复制</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- URL -->
+      <view class="field-row" wx:if="{{entry.url}}">
+        <view class="field-label">网址</view>
+        <view class="field-value-row">
+          <text class="field-value url-value" selectable>{{entry.url}}</text>
+          <view class="field-actions">
+            <view class="copy-btn" bindtap="copyField" data-field="url" data-value="{{entry.url}}">
+              <text class="copy-icon">复制</text>
+            </view>
+            <view class="open-btn" bindtap="openUrl" wx:if="{{entry.url}}">
+              <text class="open-icon">打开</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- Tags Card -->
+    <view class="card tags-card" wx:if="{{entry.tags && entry.tags.length > 0}}">
+      <view class="field-label">标签</view>
+      <view class="tags-row">
+        <text class="tag tag-chip" wx:for="{{entry.tags}}" wx:key="*this">{{item}}</text>
+      </view>
+    </view>
+
+    <!-- Notes Card -->
+    <view class="card notes-card" wx:if="{{entry.notes}}">
+      <view class="field-label">备注</view>
+      <view class="notes-content">
+        <text selectable>{{entry.notes}}</text>
+      </view>
+    </view>
+
+    <!-- Dates Card -->
+    <view class="card dates-card">
+      <view class="date-row">
+        <text class="date-label">创建时间</text>
+        <text class="date-value">{{createdAt}}</text>
+      </view>
+      <view class="date-row" wx:if="{{updatedAt}}">
+        <text class="date-label">更新时间</text>
+        <text class="date-value">{{updatedAt}}</text>
+      </view>
+    </view>
+
+    <!-- Action Buttons -->
+    <view class="action-buttons">
+      <button class="btn-edit" bindtap="onEdit">编辑</button>
+      <button class="btn-delete" bindtap="onDelete">删除</button>
+    </view>
+  </block>
+
+  <!-- Empty State -->
+  <view class="empty-state" wx:if="{{!loading && !entry}}">
+    <text>未找到该条目</text>
+  </view>
+</view>

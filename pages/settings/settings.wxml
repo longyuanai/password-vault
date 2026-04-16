@@ -1,0 +1,82 @@
+<view class="page-container settings-page">
+
+  <!-- 修改主密码 -->
+  <view class="card">
+    <view class="card-header">修改主密码</view>
+
+    <view class="form-item">
+      <text class="form-label">旧密码</text>
+      <input
+        class="form-input"
+        type="text"
+        password
+        placeholder="请输入旧密码"
+        value="{{oldPassword}}"
+        bindinput="onOldPasswordInput"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">新密码</text>
+      <input
+        class="form-input"
+        type="text"
+        password
+        placeholder="至少8位字符"
+        value="{{newPassword}}"
+        bindinput="onNewPasswordInput"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">确认新密码</text>
+      <input
+        class="form-input"
+        type="text"
+        password
+        placeholder="再次输入新密码"
+        value="{{confirmPassword}}"
+        bindinput="onConfirmPasswordInput"
+      />
+    </view>
+
+    <view class="alert alert-error" wx:if="{{passwordError}}">{{passwordError}}</view>
+    <view class="alert alert-success" wx:if="{{passwordSuccess}}">{{passwordSuccess}}</view>
+
+    <button class="btn-primary" bindtap="onChangePassword" loading="{{changingPassword}}">修改密码</button>
+  </view>
+
+  <!-- 数据管理 -->
+  <view class="card">
+    <view class="card-header">数据管理</view>
+
+    <view class="settings-section">
+      <text class="section-title">导出数据</text>
+      <view class="btn-row">
+        <button class="btn-primary btn-export" bindtap="exportJSON" loading="{{exportingJSON}}">导出 JSON</button>
+        <button class="btn-primary btn-export" bindtap="exportCSV" loading="{{exportingCSV}}">导出 CSV</button>
+      </view>
+    </view>
+
+    <view class="settings-section">
+      <text class="section-title">导入数据</text>
+      <view class="btn-row">
+        <button class="btn-primary btn-import" bindtap="importJSON" loading="{{importingJSON}}">导入 JSON</button>
+      </view>
+    </view>
+
+    <view class="alert alert-error" wx:if="{{dataError}}">{{dataError}}</view>
+    <view class="alert alert-success" wx:if="{{dataSuccess}}">{{dataSuccess}}</view>
+  </view>
+
+  <!-- 锁定保险库 -->
+  <view class="card">
+    <button class="btn-danger" bindtap="onLock">锁定保险库</button>
+  </view>
+
+  <!-- 版本信息 -->
+  <view class="version-info">
+    <text>密码管理器 v{{version}}</text>
+  </view>
+
+</view>

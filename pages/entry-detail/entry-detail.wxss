@@ -1,0 +1,250 @@
+/* Loading */
+.loading-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120rpx 0;
+}
+
+.loading-spinner {
+  width: 64rpx;
+  height: 64rpx;
+  border: 4rpx solid #dcdfe6;
+  border-top-color: #409eff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  margin-top: 24rpx;
+  font-size: 28rpx;
+  color: #909399;
+}
+
+/* Title Card */
+.title-card {
+  margin-bottom: 24rpx;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.entry-title {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #303133;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.favorite-star {
+  font-size: 48rpx;
+  color: #f7ba2a;
+  margin-left: 16rpx;
+  flex-shrink: 0;
+}
+
+.category-row {
+  margin-top: 16rpx;
+}
+
+.category-tag {
+  background-color: #ecf5ff;
+  color: #409eff;
+  border: 1rpx solid #d9ecff;
+}
+
+/* Fields Card */
+.fields-card {
+  margin-bottom: 24rpx;
+}
+
+.field-row {
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #ebeef5;
+}
+
+.field-row:last-child {
+  border-bottom: none;
+}
+
+.field-label {
+  font-size: 26rpx;
+  color: #909399;
+  margin-bottom: 12rpx;
+}
+
+.field-value-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.field-value {
+  font-size: 30rpx;
+  color: #303133;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+
+.password-value {
+  font-family: monospace;
+  letter-spacing: 2rpx;
+}
+
+.url-value {
+  color: #409eff;
+}
+
+.field-actions {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: 16rpx;
+}
+
+.copy-btn,
+.toggle-btn,
+.open-btn {
+  padding: 8rpx 20rpx;
+  border-radius: 8rpx;
+  margin-left: 12rpx;
+  flex-shrink: 0;
+}
+
+.copy-btn {
+  background-color: #ecf5ff;
+}
+
+.copy-icon {
+  font-size: 24rpx;
+  color: #409eff;
+}
+
+.toggle-btn {
+  background-color: #f4f4f5;
+}
+
+.toggle-icon {
+  font-size: 28rpx;
+}
+
+.open-btn {
+  background-color: #f0f9eb;
+}
+
+.open-icon {
+  font-size: 24rpx;
+  color: #67c23a;
+}
+
+/* Tags Card */
+.tags-card {
+  margin-bottom: 24rpx;
+}
+
+.tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin-top: 8rpx;
+}
+
+.tag-chip {
+  background-color: #f4f4f5;
+  color: #909399;
+  border: 1rpx solid #e9e9eb;
+  padding: 6rpx 20rpx;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+}
+
+/* Notes Card */
+.notes-card {
+  margin-bottom: 24rpx;
+}
+
+.notes-content {
+  margin-top: 8rpx;
+  font-size: 28rpx;
+  color: #303133;
+  line-height: 1.6;
+  word-break: break-all;
+  white-space: pre-wrap;
+}
+
+/* Dates Card */
+.dates-card {
+  margin-bottom: 40rpx;
+}
+
+.date-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12rpx 0;
+}
+
+.date-row + .date-row {
+  border-top: 1rpx solid #ebeef5;
+}
+
+.date-label {
+  font-size: 26rpx;
+  color: #909399;
+}
+
+.date-value {
+  font-size: 26rpx;
+  color: #606266;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 24rpx;
+  padding: 0 0 60rpx;
+}
+
+.btn-edit,
+.btn-delete {
+  flex: 1;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  border-radius: 12rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  border: none;
+}
+
+.btn-edit {
+  background-color: #409eff;
+  color: #ffffff;
+}
+
+.btn-edit::after {
+  border: none;
+}
+
+.btn-delete {
+  background-color: #ffffff;
+  color: #f56c6c;
+  border: 2rpx solid #f56c6c;
+}
+
+.btn-delete::after {
+  border: none;
+}

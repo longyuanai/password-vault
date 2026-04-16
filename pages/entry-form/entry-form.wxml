@@ -1,0 +1,145 @@
+<view class="page-container">
+  <!-- 加载状态 -->
+  <view class="loading-container" wx:if="{{pageLoading}}">
+    <text>加载中...</text>
+  </view>
+
+  <block wx:else>
+    <!-- 错误提示 -->
+    <view class="alert alert-error" wx:if="{{errorMsg}}">{{errorMsg}}</view>
+
+    <view class="card">
+      <!-- 标题 -->
+      <view class="form-item">
+        <text class="form-label">标题 <text class="required">*</text></text>
+        <input
+          class="form-input"
+          placeholder="请输入标题"
+          value="{{form.title}}"
+          bindinput="onFieldInput"
+          data-field="title"
+        />
+      </view>
+
+      <!-- 用户名 -->
+      <view class="form-item">
+        <text class="form-label">用户名</text>
+        <input
+          class="form-input"
+          placeholder="请输入用户名"
+          value="{{form.username}}"
+          bindinput="onFieldInput"
+          data-field="username"
+        />
+      </view>
+
+      <!-- 密码 -->
+      <view class="form-item">
+        <text class="form-label">密码</text>
+        <view class="password-field">
+          <input
+            class="form-input password-input"
+            placeholder="请输入密码"
+            password="{{!showPassword}}"
+            value="{{form.password}}"
+            bindinput="onPasswordInput"
+          />
+          <view class="password-actions">
+            <view class="action-btn toggle-btn" bindtap="togglePasswordVisibility">
+              <text>{{showPassword ? '隐藏' : '显示'}}</text>
+            </view>
+            <view class="action-btn generate-btn" bindtap="generatePassword" loading="{{generating}}">
+              <text>生成密码</text>
+            </view>
+          </view>
+        </view>
+
+        <!-- 密码强度条 -->
+        <view class="strength-bar-wrapper" wx:if="{{form.password.length > 0}}">
+          <view class="strength-bar">
+            <view
+              class="strength-fill strength-{{strengthLevel}}"
+              style="width: {{strengthPercent}}%"
+            ></view>
+          </view>
+          <text class="strength-text strength-text-{{strengthLevel}}">{{strengthLabel}}</text>
+        </view>
+      </view>
+
+      <!-- URL -->
+      <view class="form-item">
+        <text class="form-label">URL</text>
+        <input
+          class="form-input"
+          placeholder="请输入网址"
+          value="{{form.url}}"
+          bindinput="onFieldInput"
+          data-field="url"
+        />
+      </view>
+
+      <!-- 分类 -->
+      <view class="form-item">
+        <text class="form-label">分类</text>
+        <picker
+          mode="selector"
+          range="{{categories}}"
+          value="{{categoryIndex}}"
+          bindchange="onCategoryChange"
+        >
+          <view class="form-input picker-value">
+            <text>{{categories[categoryIndex]}}</text>
+            <text class="picker-arrow">▼</text>
+          </view>
+        </picker>
+      </view>
+
+      <!-- 标签 -->
+      <view class="form-item">
+        <text class="form-label">标签</text>
+        <input
+          class="form-input"
+          placeholder="多个标签用逗号分隔"
+          value="{{form.tags}}"
+          bindinput="onFieldInput"
+          data-field="tags"
+        />
+        <view class="tags-preview" wx:if="{{tagList.length > 0}}">
+          <text class="tag tag-info" wx:for="{{tagList}}" wx:key="*this">{{item}}</text>
+        </view>
+      </view>
+
+      <!-- 备注 -->
+      <view class="form-item">
+        <text class="form-label">备注</text>
+        <textarea
+          class="form-textarea"
+          placeholder="请输入备注信息"
+          value="{{form.notes}}"
+          bindinput="onFieldInput"
+          data-field="notes"
+        />
+      </view>
+
+      <!-- 收藏 -->
+      <view class="form-item switch-item">
+        <text class="form-label">收藏</text>
+        <switch
+          checked="{{form.favorite}}"
+          bindchange="onFavoriteChange"
+          color="#409eff"
+        />
+      </view>
+    </view>
+
+    <!-- 提交按钮 -->
+    <button
+      class="btn-primary submit-btn"
+      bindtap="onSubmit"
+      disabled="{{submitting}}"
+      loading="{{submitting}}"
+    >
+      {{isEdit ? '更新' : '创建'}}
+    </button>
+  </block>
+</view>

@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Database
+server/data/vault.db
+server/data/vault.db-shm
+server/data/vault.db-wal
+
+# Build output
+client/dist/
+dist/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# WeChat Mini Program
+project.private.config.json
+miniprogram_npm/
+
+# Logs
+*.log
+npm-debug.log*
+
+# pnpm
+.pnpm-store/

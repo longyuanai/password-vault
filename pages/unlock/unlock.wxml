@@ -1,0 +1,16 @@
+<view class="centered-container">
+  <view class="centered-card">
+    <view class="card-header" style="text-align: center; border-bottom: none;">
+      <text style="font-size: 48rpx;">🔓</text>
+      <view style="font-size: 36rpx; font-weight: 600; margin-top: 16rpx;">解锁保险库</view>
+    </view>
+
+    <view wx:if="{{error}}" class="alert alert-error">{{error}}</view>
+
+    <view class="form-item">
+      <input class="form-input" type="text" password="{{true}}" placeholder="输入主密码" value="{{masterPassword}}" bindinput="onInput" bindconfirm="onSubmit" />
+    </view>
+
+    <button class="btn-primary" loading="{{loading}}" bindtap="onSubmit">解锁</button>
+  </view>
+</view>

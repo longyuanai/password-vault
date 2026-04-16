@@ -1,0 +1,99 @@
+<view class="page-container">
+  <!-- 密码显示区域 -->
+  <view class="card password-display-card">
+    <view class="password-text-wrapper">
+      <text class="password-text" selectable="true" user-select="true">{{password || '点击生成密码'}}</text>
+    </view>
+    <view class="password-actions">
+      <button class="action-btn copy-btn" bindtap="onCopy" disabled="{{!password}}">
+        <text>复制</text>
+      </button>
+      <button class="action-btn refresh-btn" bindtap="generate">
+        <text>重新生成</text>
+      </button>
+    </view>
+
+    <!-- 密码强度条 -->
+    <view class="strength-section" wx:if="{{password}}">
+      <view class="strength-label">
+        <text>密码强度：</text>
+        <text class="strength-text strength-level-{{strength}}">{{strengthLabels[strength]}}</text>
+      </view>
+      <view class="strength-bar">
+        <view class="strength-bar-item {{strength >= 1 ? 'strength-level-' + strength : 'strength-empty'}}"></view>
+        <view class="strength-bar-item {{strength >= 2 ? 'strength-level-' + strength : 'strength-empty'}}"></view>
+        <view class="strength-bar-item {{strength >= 3 ? 'strength-level-' + strength : 'strength-empty'}}"></view>
+        <view class="strength-bar-item {{strength >= 4 ? 'strength-level-' + strength : 'strength-empty'}}"></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 设置卡片 -->
+  <view class="card">
+    <view class="card-header">生成设置</view>
+
+    <!-- 密码长度 -->
+    <view class="form-item">
+      <view class="slider-header">
+        <text class="form-label">密码长度</text>
+        <text class="length-value">{{length}}</text>
+      </view>
+      <slider
+        min="6"
+        max="64"
+        value="{{length}}"
+        activeColor="#409eff"
+        block-size="24"
+        bindchanging="onLengthChange"
+        bindchange="onLengthChange"
+      />
+    </view>
+
+    <!-- 字符类型选择 -->
+    <view class="form-item">
+      <text class="form-label">包含字符类型</text>
+      <view class="checkbox-group">
+        <view class="checkbox-item" bindtap="toggleUppercase">
+          <view class="checkbox-box {{uppercase ? 'checked' : ''}}">
+            <text wx:if="{{uppercase}}" class="checkbox-icon">✓</text>
+          </view>
+          <text class="checkbox-label">大写字母 (A-Z)</text>
+        </view>
+        <view class="checkbox-item" bindtap="toggleLowercase">
+          <view class="checkbox-box {{lowercase ? 'checked' : ''}}">
+            <text wx:if="{{lowercase}}" class="checkbox-icon">✓</text>
+          </view>
+          <text class="checkbox-label">小写字母 (a-z)</text>
+        </view>
+        <view class="checkbox-item" bindtap="toggleNumbers">
+          <view class="checkbox-box {{numbers ? 'checked' : ''}}">
+            <text wx:if="{{numbers}}" class="checkbox-icon">✓</text>
+          </view>
+          <text class="checkbox-label">数字 (0-9)</text>
+        </view>
+        <view class="checkbox-item" bindtap="toggleSymbols">
+          <view class="checkbox-box {{symbols ? 'checked' : ''}}">
+            <text wx:if="{{symbols}}" class="checkbox-icon">✓</text>
+          </view>
+          <text class="checkbox-label">特殊符号 (!@#$...)</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 排除字符 -->
+    <view class="form-item">
+      <text class="form-label">排除字符</text>
+      <input
+        class="form-input"
+        placeholder="输入需要排除的字符"
+        value="{{excludeChars}}"
+        bindinput="onExcludeInput"
+      />
+    </view>
+  </view>
+
+  <!-- 生成按钮 -->
+  <button class="btn-primary generate-btn" bindtap="generate" loading="{{loading}}" disabled="{{loading}}">
+    生成密码
+  </button>
+</view>

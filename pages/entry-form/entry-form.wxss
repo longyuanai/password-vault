@@ -1,0 +1,141 @@
+/* 必填标识 */
+.required {
+  color: #f56c6c;
+  margin-left: 4rpx;
+}
+
+/* 密码字段布局 */
+.password-field {
+  position: relative;
+}
+
+.password-input {
+  padding-right: 240rpx !important;
+}
+
+.password-actions {
+  position: absolute;
+  right: 8rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.action-btn {
+  padding: 8rpx 16rpx;
+  border-radius: 6rpx;
+  font-size: 24rpx;
+  white-space: nowrap;
+}
+
+.toggle-btn {
+  color: #409eff;
+  background-color: #ecf5ff;
+}
+
+.generate-btn {
+  color: #ffffff;
+  background-color: #409eff;
+}
+
+.generate-btn:active {
+  background-color: #337ecc;
+}
+
+/* 密码强度条 */
+.strength-bar-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 16rpx;
+  gap: 16rpx;
+}
+
+.strength-bar {
+  flex: 1;
+  height: 8rpx;
+  background-color: #ebeef5;
+  border-radius: 4rpx;
+  overflow: hidden;
+}
+
+.strength-fill {
+  height: 100%;
+  border-radius: 4rpx;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.strength-weak {
+  background-color: #f56c6c;
+}
+
+.strength-fair {
+  background-color: #e6a23c;
+}
+
+.strength-medium {
+  background-color: #e6a23c;
+}
+
+.strength-strong {
+  background-color: #67c23a;
+}
+
+.strength-text {
+  font-size: 24rpx;
+  flex-shrink: 0;
+}
+
+.strength-text-weak {
+  color: #f56c6c;
+}
+
+.strength-text-fair {
+  color: #e6a23c;
+}
+
+.strength-text-medium {
+  color: #e6a23c;
+}
+
+.strength-text-strong {
+  color: #67c23a;
+}
+
+/* 分类选择器 */
+.picker-value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 80rpx;
+}
+
+.picker-arrow {
+  font-size: 24rpx;
+  color: #c0c4cc;
+}
+
+/* 标签预览 */
+.tags-preview {
+  margin-top: 12rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* 收藏开关 */
+.switch-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.switch-item .form-label {
+  margin-bottom: 0;
+}
+
+/* 提交按钮 */
+.submit-btn {
+  margin-top: 16rpx;
+  margin-bottom: 48rpx;
+}

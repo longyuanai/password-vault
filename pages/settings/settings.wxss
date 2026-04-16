@@ -1,0 +1,71 @@
+.settings-page {
+  padding-bottom: 60rpx;
+}
+
+/* 区块标题 */
+.settings-section {
+  margin-top: 30rpx;
+}
+
+.settings-section:first-child {
+  margin-top: 0;
+}
+
+.section-title {
+  display: block;
+  font-size: 28rpx;
+  color: #303133;
+  font-weight: 500;
+  margin-bottom: 20rpx;
+}
+
+/* 按钮行 */
+.btn-row {
+  display: flex;
+  gap: 20rpx;
+}
+
+.btn-export,
+.btn-import {
+  flex: 1;
+  font-size: 28rpx;
+}
+
+/* 成功提示 */
+.alert-success {
+  background-color: #f0f9eb;
+  color: #67c23a;
+  border: 1rpx solid #e1f3d8;
+  border-radius: 8rpx;
+  padding: 16rpx 24rpx;
+  font-size: 26rpx;
+  margin-top: 20rpx;
+}
+
+/* 危险按钮 */
+.btn-danger {
+  width: 100%;
+  background-color: #f56c6c;
+  color: #ffffff;
+  border: none;
+  border-radius: 8rpx;
+  font-size: 32rpx;
+  padding: 20rpx 0;
+  line-height: 1.5;
+}
+
+.btn-danger::after {
+  border: none;
+}
+
+.btn-danger:active {
+  background-color: #e04848;
+}
+
+/* 版本信息 */
+.version-info {
+  text-align: center;
+  padding: 40rpx 0 20rpx;
+  color: #909399;
+  font-size: 24rpx;
+}

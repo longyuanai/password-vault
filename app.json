@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/setup/setup",
+    "pages/unlock/unlock",
+    "pages/entry-detail/entry-detail",
+    "pages/entry-form/entry-form",
+    "pages/generator/generator",
+    "pages/health/health",
+    "pages/settings/settings"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#409eff",
+    "navigationBarTitleText": "密码保险库",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f0f2f5",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#909399",
+    "selectedColor": "#409eff",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "密码列表",
+        "iconPath": "images/list.png",
+        "selectedIconPath": "images/list-active.png"
+      },
+      {
+        "pagePath": "pages/generator/generator",
+        "text": "生成器",
+        "iconPath": "images/magic.png",
+        "selectedIconPath": "images/magic-active.png"
+      },
+      {
+        "pagePath": "pages/health/health",
+        "text": "健康检查",
+        "iconPath": "images/health.png",
+        "selectedIconPath": "images/health-active.png"
+      },
+      {
+        "pagePath": "pages/settings/settings",
+        "text": "设置",
+        "iconPath": "images/settings.png",
+        "selectedIconPath": "images/settings-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

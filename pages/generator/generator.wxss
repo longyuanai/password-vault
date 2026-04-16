@@ -1,0 +1,193 @@
+/* 密码显示区域 */
+.password-display-card {
+  text-align: center;
+}
+
+.password-text-wrapper {
+  background-color: #f5f7fa;
+  border: 2rpx solid #dcdfe6;
+  border-radius: 12rpx;
+  padding: 32rpx 24rpx;
+  margin-bottom: 24rpx;
+  min-height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  word-break: break-all;
+}
+
+.password-text {
+  font-family: 'Courier New', Consolas, 'Liberation Mono', monospace;
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #303133;
+  letter-spacing: 2rpx;
+  line-height: 1.6;
+}
+
+/* 操作按钮 */
+.password-actions {
+  display: flex;
+  gap: 20rpx;
+  margin-bottom: 24rpx;
+}
+
+.action-btn {
+  flex: 1;
+  height: 72rpx;
+  line-height: 72rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  padding: 0;
+  margin: 0;
+}
+
+.copy-btn {
+  background-color: #409eff;
+  color: #ffffff;
+}
+
+.copy-btn[disabled] {
+  background-color: #a0cfff;
+  color: #ffffff;
+}
+
+.refresh-btn {
+  background-color: #ffffff;
+  color: #409eff;
+  border: 2rpx solid #409eff;
+}
+
+/* 密码强度 */
+.strength-section {
+  padding-top: 8rpx;
+}
+
+.strength-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12rpx;
+  font-size: 26rpx;
+  color: #909399;
+}
+
+.strength-text {
+  font-weight: 600;
+}
+
+.strength-bar {
+  display: flex;
+  gap: 8rpx;
+}
+
+.strength-bar-item {
+  flex: 1;
+  height: 8rpx;
+  border-radius: 4rpx;
+  background-color: #e4e7ed;
+  transition: background-color 0.3s;
+}
+
+.strength-empty {
+  background-color: #e4e7ed;
+}
+
+.strength-level-1 {
+  color: #f56c6c;
+}
+
+.strength-bar-item.strength-level-1 {
+  background-color: #f56c6c;
+}
+
+.strength-level-2 {
+  color: #e6a23c;
+}
+
+.strength-bar-item.strength-level-2 {
+  background-color: #e6a23c;
+}
+
+.strength-level-3 {
+  color: #409eff;
+}
+
+.strength-bar-item.strength-level-3 {
+  background-color: #409eff;
+}
+
+.strength-level-4 {
+  color: #67c23a;
+}
+
+.strength-bar-item.strength-level-4 {
+  background-color: #67c23a;
+}
+
+/* 滑块区域 */
+.slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8rpx;
+}
+
+.length-value {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #409eff;
+  min-width: 60rpx;
+  text-align: right;
+}
+
+/* 复选框组 */
+.checkbox-group {
+  margin-top: 12rpx;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #f2f3f5;
+}
+
+.checkbox-item:last-child {
+  border-bottom: none;
+}
+
+.checkbox-box {
+  width: 40rpx;
+  height: 40rpx;
+  border: 2rpx solid #dcdfe6;
+  border-radius: 6rpx;
+  margin-right: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.checkbox-box.checked {
+  background-color: #409eff;
+  border-color: #409eff;
+}
+
+.checkbox-icon {
+  color: #ffffff;
+  font-size: 24rpx;
+  font-weight: 700;
+}
+
+.checkbox-label {
+  font-size: 28rpx;
+  color: #303133;
+}
+
+/* 生成按钮 */
+.generate-btn {
+  margin-top: 8rpx;
+  margin-bottom: 40rpx;
+}

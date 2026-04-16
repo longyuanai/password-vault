@@ -1,0 +1,254 @@
+.health-page {
+  padding-bottom: 120rpx;
+}
+
+/* Loading */
+.loading-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 300rpx;
+}
+
+.loading-spinner {
+  width: 60rpx;
+  height: 60rpx;
+  border: 6rpx solid #e0e0e0;
+  border-top-color: #409eff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  margin-top: 24rpx;
+  font-size: 28rpx;
+  color: #909399;
+}
+
+/* Score Card */
+.score-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48rpx 32rpx 40rpx;
+}
+
+.score-circle {
+  width: 240rpx;
+  height: 240rpx;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 12rpx solid #e0e0e0;
+}
+
+.score-circle.score-red {
+  border-color: #f56c6c;
+  background: rgba(245, 108, 108, 0.08);
+}
+
+.score-circle.score-orange {
+  border-color: #e6a23c;
+  background: rgba(230, 162, 60, 0.08);
+}
+
+.score-circle.score-green {
+  border-color: #67c23a;
+  background: rgba(103, 194, 58, 0.08);
+}
+
+.score-number {
+  font-size: 72rpx;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.score-red .score-number {
+  color: #f56c6c;
+}
+
+.score-orange .score-number {
+  color: #e6a23c;
+}
+
+.score-green .score-number {
+  color: #67c23a;
+}
+
+.score-label {
+  font-size: 24rpx;
+  color: #909399;
+  margin-top: 8rpx;
+}
+
+.score-summary {
+  margin-top: 24rpx;
+  font-size: 28rpx;
+  color: #606266;
+}
+
+/* All Safe State */
+.all-safe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80rpx 32rpx;
+}
+
+.safe-icon {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background: #67c23a;
+  color: #fff;
+  font-size: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.safe-text {
+  margin-top: 32rpx;
+  font-size: 32rpx;
+  color: #67c23a;
+  font-weight: 500;
+}
+
+/* Sections */
+.section {
+  padding: 0;
+  overflow: hidden;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28rpx 32rpx;
+}
+
+.section-title-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.section-indicator {
+  width: 8rpx;
+  height: 36rpx;
+  border-radius: 4rpx;
+  margin-right: 20rpx;
+}
+
+.indicator-weak {
+  background: #f56c6c;
+}
+
+.indicator-reused {
+  background: #e6a23c;
+}
+
+.indicator-old {
+  background: #909399;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #303133;
+}
+
+/* Count Badge */
+.count-badge {
+  margin-left: 16rpx;
+  min-width: 40rpx;
+  height: 40rpx;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12rpx;
+}
+
+.badge-weak {
+  background: #f56c6c;
+}
+
+.badge-reused {
+  background: #e6a23c;
+}
+
+.badge-old {
+  background: #909399;
+}
+
+/* Arrow */
+.section-arrow {
+  font-size: 36rpx;
+  color: #c0c4cc;
+  transition: transform 0.25s ease;
+  transform: rotate(0deg);
+}
+
+.section-arrow.arrow-expanded {
+  transform: rotate(90deg);
+}
+
+/* Section Body */
+.section-body {
+  border-top: 1rpx solid #f0f0f0;
+}
+
+/* Entry Item */
+.entry-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24rpx 32rpx 24rpx 60rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.entry-item:last-child {
+  border-bottom: none;
+}
+
+.entry-item:active {
+  background: #f5f7fa;
+}
+
+.entry-info {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  overflow: hidden;
+}
+
+.entry-title {
+  font-size: 28rpx;
+  color: #303133;
+  margin-right: 16rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.entry-category {
+  font-size: 22rpx;
+  flex-shrink: 0;
+}
+
+.entry-arrow {
+  font-size: 32rpx;
+  color: #c0c4cc;
+  margin-left: 16rpx;
+  flex-shrink: 0;
+}

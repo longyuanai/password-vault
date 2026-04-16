@@ -1,0 +1,176 @@
+/* 搜索栏 */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 12rpx;
+  padding: 0 24rpx;
+  height: 80rpx;
+  margin-bottom: 20rpx;
+  border: 2rpx solid #dcdfe6;
+}
+
+.search-icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 16rpx;
+  opacity: 0.5;
+}
+
+.search-input {
+  flex: 1;
+  height: 80rpx;
+  font-size: 28rpx;
+  color: #303133;
+}
+
+.search-clear {
+  width: 40rpx;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c0c4cc;
+  font-size: 28rpx;
+}
+
+/* 分类筛选 */
+.category-scroll {
+  white-space: nowrap;
+  margin-bottom: 24rpx;
+}
+
+.category-chip {
+  display: inline-block;
+  padding: 10rpx 28rpx;
+  margin-right: 16rpx;
+  border-radius: 32rpx;
+  font-size: 26rpx;
+  color: #606266;
+  background: #ffffff;
+  border: 2rpx solid #dcdfe6;
+  transition: all 0.2s;
+}
+
+.category-chip-active {
+  background: #409eff;
+  color: #ffffff;
+  border-color: #409eff;
+}
+
+/* 加载中 */
+.loading-spinner {
+  color: #909399;
+  font-size: 28rpx;
+}
+
+/* 空状态 */
+.empty-icon {
+  font-size: 80rpx;
+  margin-bottom: 24rpx;
+}
+
+.empty-text {
+  font-size: 32rpx;
+  color: #606266;
+  margin-bottom: 12rpx;
+}
+
+.empty-hint {
+  font-size: 26rpx;
+  color: #c0c4cc;
+}
+
+/* 条目卡片 */
+.entry-list {
+  padding-bottom: 160rpx;
+}
+
+.entry-card {
+  padding: 28rpx 32rpx;
+}
+
+.entry-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12rpx;
+}
+
+.entry-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #303133;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 16rpx;
+}
+
+.entry-star {
+  font-size: 36rpx;
+  color: #dcdfe6;
+  flex-shrink: 0;
+}
+
+.entry-star-active {
+  color: #e6a23c;
+}
+
+.entry-username {
+  font-size: 26rpx;
+  color: #909399;
+  margin-bottom: 16rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.entry-footer {
+  display: flex;
+  align-items: center;
+}
+
+.entry-tag {
+  font-size: 22rpx;
+}
+
+/* 加载更多 */
+.load-more {
+  text-align: center;
+  padding: 24rpx 0;
+}
+
+.load-more-text {
+  font-size: 26rpx;
+  color: #409eff;
+}
+
+.no-more {
+  text-align: center;
+  padding: 24rpx 0;
+}
+
+.no-more-text {
+  font-size: 24rpx;
+  color: #c0c4cc;
+}
+
+/* 悬浮添加按钮 */
+.fab {
+  position: fixed;
+  right: 40rpx;
+  bottom: 60rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background: #409eff;
+  color: #ffffff;
+  font-size: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6rpx 20rpx rgba(64, 158, 255, 0.4);
+  z-index: 100;
+}
