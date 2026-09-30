@@ -1,0 +1,102 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  server:
+    name: Server (Node ${{ matrix.node }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [20, 22, 24]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --filter server...
+      - name: Syntax check
+        run: find server/src -name '*.js' -print0 | xargs -0 -n1 node --check
+      - name: Test
+        run: pnpm --filter server test
+      - name: Startup smoke test
+        working-directory: server
+        env:
+          PORT: '5055'
+          NODE_ENV: production
+          DB_PATH: ${{ runner.temp }}/smoke/vault.db
+        run: |
+          node src/app.js > "$RUNNER_TEMP/server.log" 2>&1 &
+          SERVER_PID=$!
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:5055/api/health; then
+              echo
+              curl -fsS http://127.0.0.1:5055/api/auth/status
+              echo
+              kill "$SERVER_PID"
+              exit 0
+            fi
+            sleep 1
+          done
+          cat "$RUNNER_TEMP/server.log"
+          kill "$SERVER_PID" || true
+          exit 1
+
+  client:
+    name: Client (Node ${{ matrix.node }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [20, 22, 24]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --filter client...
+      - name: Test
+        run: pnpm --filter client test
+      - name: Build
+        run: pnpm --filter client build
+      - name: Upload dist
+        if: matrix.node == 22
+        uses: actions/upload-artifact@v4
+        with:
+          name: client-dist
+          path: client/dist
+          retention-days: 7
+
+  miniprogram:
+    name: Mini Program unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # 小程序纯逻辑测试只依赖 Node 内置的 node:test，无需安装依赖
+      - name: Test
+        run: node --test tests/miniprogram/*.test.js
